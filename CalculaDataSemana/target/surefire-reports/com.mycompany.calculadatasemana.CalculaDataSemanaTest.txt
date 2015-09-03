@@ -1,12 +1,12 @@
 -------------------------------------------------------------------------------
 Test set: com.mycompany.calculadatasemana.CalculaDataSemanaTest
 -------------------------------------------------------------------------------
-Tests run: 6, Failures: 2, Errors: 4, Skipped: 0, Time elapsed: 0.145 sec <<< FAILURE!
-testCalculaDiferencaEmSegundos(com.mycompany.calculadatasemana.CalculaDataSemanaTest)  Time elapsed: 0.015 sec  <<< ERROR!
+Tests run: 6, Failures: 2, Errors: 4, Skipped: 0, Time elapsed: 0.094 sec <<< FAILURE!
+testCalculaDiferencaEmSegundos(com.mycompany.calculadatasemana.CalculaDataSemanaTest)  Time elapsed: 0.016 sec  <<< ERROR!
 java.lang.StringIndexOutOfBoundsException: String index out of range: 2
 	at java.lang.String.substring(String.java:1950)
-	at com.mycompany.calculadatasemana.CalculaDataSemana.dataParaSegundos(CalculaDataSemana.java:100)
-	at com.mycompany.calculadatasemana.CalculaDataSemana.calculaDiferencaEmSegundos(CalculaDataSemana.java:137)
+	at com.mycompany.calculadatasemana.CalculaDataSemana.dataParaSegundos(CalculaDataSemana.java:103)
+	at com.mycompany.calculadatasemana.CalculaDataSemana.calculaDiferencaEmSegundos(CalculaDataSemana.java:140)
 	at com.mycompany.calculadatasemana.CalculaDataSemanaTest.testCalculaDiferencaEmSegundos(CalculaDataSemanaTest.java:109)
 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
@@ -41,10 +41,10 @@ java.lang.StringIndexOutOfBoundsException: String index out of range: 2
 	at org.apache.maven.surefire.booter.SurefireStarter.invokeProvider(SurefireStarter.java:175)
 	at org.apache.maven.surefire.booter.SurefireStarter.runSuitesInProcessWhenForked(SurefireStarter.java:107)
 	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:68)
-testDataParaSegundos(com.mycompany.calculadatasemana.CalculaDataSemanaTest)  Time elapsed: 0.001 sec  <<< ERROR!
+testDataParaSegundos(com.mycompany.calculadatasemana.CalculaDataSemanaTest)  Time elapsed: 0 sec  <<< ERROR!
 java.lang.StringIndexOutOfBoundsException: String index out of range: 2
 	at java.lang.String.substring(String.java:1950)
-	at com.mycompany.calculadatasemana.CalculaDataSemana.dataParaSegundos(CalculaDataSemana.java:100)
+	at com.mycompany.calculadatasemana.CalculaDataSemana.dataParaSegundos(CalculaDataSemana.java:103)
 	at com.mycompany.calculadatasemana.CalculaDataSemanaTest.testDataParaSegundos(CalculaDataSemanaTest.java:94)
 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
@@ -117,12 +117,12 @@ java.lang.StringIndexOutOfBoundsException: String index out of range: 2
 	at org.apache.maven.surefire.booter.SurefireStarter.invokeProvider(SurefireStarter.java:175)
 	at org.apache.maven.surefire.booter.SurefireStarter.runSuitesInProcessWhenForked(SurefireStarter.java:107)
 	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:68)
-testCalculaDiferencaEmDias(com.mycompany.calculadatasemana.CalculaDataSemanaTest)  Time elapsed: 0.001 sec  <<< ERROR!
+testCalculaDiferencaEmDias(com.mycompany.calculadatasemana.CalculaDataSemanaTest)  Time elapsed: 0 sec  <<< ERROR!
 java.lang.StringIndexOutOfBoundsException: String index out of range: 2
 	at java.lang.String.substring(String.java:1950)
-	at com.mycompany.calculadatasemana.CalculaDataSemana.dataParaSegundos(CalculaDataSemana.java:100)
-	at com.mycompany.calculadatasemana.CalculaDataSemana.calculaDiferencaEmSegundos(CalculaDataSemana.java:137)
-	at com.mycompany.calculadatasemana.CalculaDataSemana.calculaDiferencaEmDias(CalculaDataSemana.java:151)
+	at com.mycompany.calculadatasemana.CalculaDataSemana.dataParaSegundos(CalculaDataSemana.java:103)
+	at com.mycompany.calculadatasemana.CalculaDataSemana.calculaDiferencaEmSegundos(CalculaDataSemana.java:140)
+	at com.mycompany.calculadatasemana.CalculaDataSemana.calculaDiferencaEmDias(CalculaDataSemana.java:154)
 	at com.mycompany.calculadatasemana.CalculaDataSemanaTest.testCalculaDiferencaEmDias(CalculaDataSemanaTest.java:125)
 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
@@ -194,7 +194,7 @@ java.lang.AssertionError: The test case is a prototype.
 	at org.apache.maven.surefire.booter.SurefireStarter.invokeProvider(SurefireStarter.java:175)
 	at org.apache.maven.surefire.booter.SurefireStarter.runSuitesInProcessWhenForked(SurefireStarter.java:107)
 	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:68)
-testBissexto(com.mycompany.calculadatasemana.CalculaDataSemanaTest)  Time elapsed: 0.001 sec  <<< FAILURE!
+testBissexto(com.mycompany.calculadatasemana.CalculaDataSemanaTest)  Time elapsed: 0 sec  <<< FAILURE!
 java.lang.AssertionError: expected:<false> but was:<true>
 	at org.junit.Assert.fail(Assert.java:88)
 	at org.junit.Assert.failNotEquals(Assert.java:743)

@@ -21,13 +21,13 @@ public class CalculaDataSemana {
         System.out.println("Informe o ano Bissexto:");
         int anoBissexto = inInt.nextInt();
 
-        System.out.println("Informe a data 1:");
+        System.out.println("Informe a data requerida:");
         String dataRequerida = inString.nextLine();
 
-        System.out.println("Informe a data 2:");
+        System.out.println("Informe uma data real:");
         String dataReal = inString.nextLine();
 
-        System.out.println("Informe o codigo do dia da semana:");
+        System.out.println("Informe o codigo do dia da semana da data real:");
         int codDiaSemanaReal = inInt.nextInt();
 
         int resultado = calculaDiaDaSemana(dataRequerida, dataReal, anoBissexto, codDiaSemanaReal);
@@ -36,23 +36,23 @@ public class CalculaDataSemana {
 
     }
 
-    public static int calculaDiaDaSemana(String data1, String data2, int anoBissexto, int codDiaSemanaReal) {
+    public static int calculaDiaDaSemana(String dataRequerida, String dataReal, int anoBissexto, int codDiaSemanaReal) {
 
         // 01/02/3333
-        int dia1 = Integer.parseInt(data1.substring(0, 2));
-        int mes1 = Integer.parseInt(data1.substring(3, 5));
-        int ano1 = Integer.parseInt(data1.substring(6, 10));
+        int diaRequerido = Integer.parseInt(dataRequerida.substring(0, 2));
+        int mesRequerido = Integer.parseInt(dataRequerida.substring(3, 5));
+        int anoRequerido = Integer.parseInt(dataRequerida.substring(6, 10));
 
-        int dia2 = Integer.parseInt(data2.substring(0, 2));
-        int mes2 = Integer.parseInt(data2.substring(3, 5));
-        int ano2 = Integer.parseInt(data2.substring(6, 10));
+        int diaReal = Integer.parseInt(dataReal.substring(0, 2));
+        int mesReal = Integer.parseInt(dataReal.substring(3, 5));
+        int anoReal = Integer.parseInt(dataReal.substring(6, 10));
 
-        if ((ano1 < 0) || (ano2 < 0)) {
+        if ((anoRequerido < 0) || (anoReal < 0)) {
 
             return -1;
         }
 
-        if ((mes1 > 12) || (mes2 > 12) || (mes1 < 1) || (mes2 < 1)) {
+        if ((mesRequerido > 12) || (mesReal > 12) || (mesRequerido < 1) || (mesReal < 1)) {
 
             return -1;
         }
@@ -66,10 +66,13 @@ public class CalculaDataSemana {
 
             return -1;
         }
+		
+		if(codDiaSemanaReal<0 || codDiaSemanaReal>6){
 
-        long diferenca = calculaDiferencaEmDias(data1, data2, anoBissexto);
+            return -1;
+		}
 
-        System.out.println("Diferenca de dias= " + diferenca);
+        long diferenca = calculaDiferencaEmDias(dataRequerida, dataReal, anoBissexto);
 
         int aux1 = (codDiaSemanaReal + (int) (long) diferenca) % 7;
         if (aux1 >= 0) {
@@ -132,10 +135,10 @@ public class CalculaDataSemana {
         return total;
     }
 
-    public static long calculaDiferencaEmSegundos(String data1, String data2) {
+    public static long calculaDiferencaEmSegundos(String dataRequerida, String dataReal) {
 
-        long segundosd1 = dataParaSegundos(data1);
-        long segundosd2 = dataParaSegundos(data2);
+        long segundosd1 = dataParaSegundos(dataRequerida);
+        long segundosd2 = dataParaSegundos(dataReal);
 
         if (segundosd1 > segundosd2) {
 
@@ -146,22 +149,22 @@ public class CalculaDataSemana {
         }
     }
 
-    public static long calculaDiferencaEmDias(String data1, String data2, int anoBissexto) {
+    public static long calculaDiferencaEmDias(String dataRequerida, String dataReal, int anoBissexto) {
 
-        long segundos = calculaDiferencaEmSegundos(data1, data2);
+        long segundos = calculaDiferencaEmSegundos(dataRequerida, dataReal);
 
-        int mes1 = Integer.parseInt(data1.substring(3, 5));
-        int mes2 = Integer.parseInt(data2.substring(3, 5));
-        int ano1 = Integer.parseInt(data1.substring(6, 10));
-        int ano2 = Integer.parseInt(data2.substring(6, 10));
+        int mesRequerido = Integer.parseInt(dataRequerida.substring(3, 5));
+        int mesReal = Integer.parseInt(dataReal.substring(3, 5));
+        int anoRequerido = Integer.parseInt(dataRequerida.substring(6, 10));
+        int anoReal = Integer.parseInt(dataReal.substring(6, 10));
 
-        if ((ano1 <= anoBissexto) && (ano2 >= anoBissexto)) {
-            if (ano1 <= anoBissexto) {
-                if ((mes1) >= 2) {
+        if ((anoRequerido <= anoBissexto) && (anoReal >= anoBissexto)) {
+            if (anoRequerido <= anoBissexto) {
+                if ((mesRequerido) >= 2) {
                     segundos += 86400;
                 }
-            } else if (ano2 >= anoBissexto) {
-                if ((mes2) >= 2) {
+            } else if (anoReal >= anoBissexto) {
+                if ((mesReal) >= 2) {
                     segundos += 86400;
                 }
             }
