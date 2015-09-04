@@ -14,6 +14,7 @@ public class CalculaDataSemana {
          4- Caso o resultado de 2 seja menor que 0 deve ser aplicada a formula (7-Result2), assim teremos o codigo do dia da semana;
          5- Levar em consideracao o ano bissexto informado, caso o mesmo seja maior ou igual 
          que o ano desejado e menor que ano do dia refencia, deve ser adicionado 1 dia;
+         6- Formato das datas: 01/02/3333
          */
         Scanner inInt = new Scanner(System.in);
         Scanner inString = new Scanner(System.in);
@@ -39,6 +40,12 @@ public class CalculaDataSemana {
     public static int calculaDiaDaSemana(String dataRequerida, String dataReal, int anoBissexto, int codDiaSemanaReal) {
 
         // 01/02/3333
+        
+        if(dataRequerida.length()<10 || dataReal.length()<10){
+            
+            return -1;
+        }
+        
         int diaRequerido = Integer.parseInt(dataRequerida.substring(0, 2));
         int mesRequerido = Integer.parseInt(dataRequerida.substring(3, 5));
         int anoRequerido = Integer.parseInt(dataRequerida.substring(6, 10));
@@ -53,6 +60,11 @@ public class CalculaDataSemana {
         }
 
         if ((mesRequerido > 12) || (mesReal > 12) || (mesRequerido < 1) || (mesReal < 1)) {
+
+            return -1;
+        }
+
+        if ((diaRequerido > 31) || (diaReal > 31) || (diaRequerido < 1) || (diaReal < 1)) {
 
             return -1;
         }

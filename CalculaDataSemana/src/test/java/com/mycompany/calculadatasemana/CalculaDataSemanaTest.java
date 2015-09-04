@@ -1,131 +1,108 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 
 package com.mycompany.calculadatasemana;
 
-import org.junit.After;
-import org.junit.AfterClass;
-import org.junit.Before;
-import org.junit.BeforeClass;
 import org.junit.Test;
 import static org.junit.Assert.*;
 
-/**
- *
- * @author Felipe
- */
 public class CalculaDataSemanaTest {
-    
-    public CalculaDataSemanaTest() {
-    }
-    
-    @BeforeClass
-    public static void setUpClass() {
-    }
-    
-    @AfterClass
-    public static void tearDownClass() {
-    }
-    
-    @Before
-    public void setUp() {
-    }
-    
-    @After
-    public void tearDown() {
-    }
 
-    /**
-     * Test of calculaDiaDaSemana method, of class CalculaDataSemana.
-     */
     @Test
-    public void testCalculaDiaDaSemana() {
-        System.out.println("calculaDiaDaSemana");
+    public void testDatasVazias() {
         String data1 = "";
         String data2 = "";
         int anoBissexto = 0;
         int codDiaSemanaReal = 0;
-        int expResult = 0;
+        int expResult = -1;
         int result = CalculaDataSemana.calculaDiaDaSemana(data1, data2, anoBissexto, codDiaSemanaReal);
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
-    /**
-     * Test of bissexto method, of class CalculaDataSemana.
-     */
     @Test
-    public void testBissexto() {
-        System.out.println("bissexto");
-        int ano = 0;
-        boolean expResult = false;
-        boolean result = CalculaDataSemana.bissexto(ano);
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    }
-
-    /**
-     * Test of contaBissextos method, of class CalculaDataSemana.
-     */
-    @Test
-    public void testContaBissextos() {
-        System.out.println("contaBissextos");
-        int ano = 0;
-        int expResult = 0;
-        int result = CalculaDataSemana.contaBissextos(ano);
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    }
-
-    /**
-     * Test of dataParaSegundos method, of class CalculaDataSemana.
-     */
-    @Test
-    public void testDataParaSegundos() {
-        System.out.println("dataParaSegundos");
-        String data = "";
-        long expResult = 0L;
-        long result = CalculaDataSemana.dataParaSegundos(data);
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    }
-
-    /**
-     * Test of calculaDiferencaEmSegundos method, of class CalculaDataSemana.
-     */
-    @Test
-    public void testCalculaDiferencaEmSegundos() {
-        System.out.println("calculaDiferencaEmSegundos");
-        String data1 = "";
-        String data2 = "";
-        long expResult = 0L;
-        long result = CalculaDataSemana.calculaDiferencaEmSegundos(data1, data2);
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    }
-
-    /**
-     * Test of calculaDiferencaEmDias method, of class CalculaDataSemana.
-     */
-    @Test
-    public void testCalculaDiferencaEmDias() {
-        System.out.println("calculaDiferencaEmDias");
-        String data1 = "";
-        String data2 = "";
+    public void testDataRequeridaVazia() {
+        String dataRequerida = "";
+        String dataReal = "05/09/2015";
         int anoBissexto = 0;
-        long expResult = 0L;
-        long result = CalculaDataSemana.calculaDiferencaEmDias(data1, data2, anoBissexto);
+        int codDiaSemanaReal = 0;
+        int expResult = -1;
+        int result = CalculaDataSemana.calculaDiaDaSemana(dataRequerida, dataReal, anoBissexto, codDiaSemanaReal);
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+    }
+
+    @Test
+    public void testDataRealVazia() {
+        String dataRequerida = "05/09/2015";
+        String dataReal = "";
+        int anoBissexto = 0;
+        int codDiaSemanaReal = 0;
+        int expResult = -1;
+        int result = CalculaDataSemana.calculaDiaDaSemana(dataRequerida, dataReal, anoBissexto, codDiaSemanaReal);
+        assertEquals(expResult, result);
+    }
+
+    @Test
+    public void testDatasNaoPadronizadas() {
+        String dataRequerida = "05/9/2015";
+        String dataReal = "04/09/15";
+        int anoBissexto = 4;
+        int codDiaSemanaReal = 0;
+        int expResult = -1;
+        int result = CalculaDataSemana.calculaDiaDaSemana(dataRequerida, dataReal, anoBissexto, codDiaSemanaReal);
+        assertEquals(expResult, result);
+    }
+
+    @Test
+    public void testDiaMaiorQue31() {
+        String dataRequerida = "32/09/2015";
+        String dataReal = "04/09/2015";
+        int anoBissexto = 4;
+        int codDiaSemanaReal = 5;
+        int expResult = -1;
+        int result = CalculaDataSemana.calculaDiaDaSemana(dataRequerida, dataReal, anoBissexto, codDiaSemanaReal);
+        assertEquals(expResult, result);
+    }
+
+    @Test
+    public void testMesMaiorQue12() {
+        String dataRequerida = "05/13/2015";
+        String dataReal = "04/09/2015";
+        int anoBissexto = 4;
+        int codDiaSemanaReal = 5;
+        int expResult = -1;
+        int result = CalculaDataSemana.calculaDiaDaSemana(dataRequerida, dataReal, anoBissexto, codDiaSemanaReal);
+        assertEquals(expResult, result);
+    }
+
+    @Test
+    public void testCodDiaMaiorQue6() {
+        String dataRequerida = "05/09/2015";
+        String dataReal = "04/09/2015";
+        int anoBissexto = 4;
+        int codDiaSemanaReal = 7;
+        int expResult = -1;
+        int result = CalculaDataSemana.calculaDiaDaSemana(dataRequerida, dataReal, anoBissexto, codDiaSemanaReal);
+        assertEquals(expResult, result);
+    }
+
+    @Test
+    public void testAnoBissextoMenorQue0() {
+        String dataRequerida = "05/09/2015";
+        String dataReal = "04/09/2015";
+        int anoBissexto = -1;
+        int codDiaSemanaReal = -1;
+        int expResult = -1;
+        int result = CalculaDataSemana.calculaDiaDaSemana(dataRequerida, dataReal, anoBissexto, codDiaSemanaReal);
+        assertEquals(expResult, result);
+    }
+    
+    @Test
+    public void testCalculaDiaDaSemana() {
+        String dataRequerida = "05/09/2015";
+        String dataReal = "04/09/2015";
+        int anoBissexto = 4;
+        int codDiaSemanaReal = 4;
+        int expResult = 5;
+        int result = CalculaDataSemana.calculaDiaDaSemana(dataRequerida, dataReal, anoBissexto, codDiaSemanaReal);
+        assertEquals(expResult, result);
     }
     
 }
